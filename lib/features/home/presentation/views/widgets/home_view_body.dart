@@ -14,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
@@ -27,6 +27,7 @@ class HomeViewBody extends StatelessWidget {
             "Best Seller",
             style: Styles.textStyle18,
           ),
+          const SizedBox(height: 20),
           ItemSeller(),
         ],
       ),
@@ -34,29 +35,3 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class ItemSeller extends StatelessWidget {
-  const ItemSeller({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-       height: 128,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.5/ 4,
-            child: Image.asset(
-              AssetsData.testImage,
-              fit: BoxFit.fill,
-            ),
-          ),
-          Column(
-            children: [
-
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
