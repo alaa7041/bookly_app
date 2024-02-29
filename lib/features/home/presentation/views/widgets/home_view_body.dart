@@ -8,7 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'best_seller_item.dart';
 import 'best_seller_list_view.dart';
 import 'custom_app_bar.dart';
-import 'custom_list.dart';
+import 'custom_book_image.dart';
 import 'featured_books_list_view_item.dart';
 
 class HomeViewBody extends StatelessWidget {
