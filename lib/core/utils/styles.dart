@@ -24,4 +24,5 @@ abstract class Styles {
     fontWeight: FontWeight.normal,
     fontFamily: kGtSectraFine,
   );
+
 }
