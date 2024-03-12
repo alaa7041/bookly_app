@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import '../../../../../core/utils/styles.dart';
+import '../../../../home/presentation/views/widgets/best_seller_item.dart';
 import 'custom_search_text_field.dart';
+import 'search_result_list_view.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -11,11 +12,18 @@ class SearchViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           CustomSearchTextField(),
+          SizedBox(height: 16),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Text("Search Result ", style: Styles.textStyle18),
+          ),
+          SizedBox(height: 16),
+          Expanded(child: SearchResultListView()),
         ],
       ),
     );
   }
 }
-

@@ -1,11 +1,10 @@
 
-
 import 'package:flutter/material.dart';
 
-import 'best_seller_item.dart';
+import '../../../../home/presentation/views/widgets/best_seller_item.dart';
 
-class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+class SearchResultListView extends StatelessWidget {
+  const SearchResultListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +14,8 @@ class BookListViewItem extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (context, index) {
         return const Padding(
-          padding:  EdgeInsets.symmetric(vertical: 10),
-          child:  ItemSeller(),
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: ItemSeller(),
         );
       },
     );
