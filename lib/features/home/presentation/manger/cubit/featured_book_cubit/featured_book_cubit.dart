@@ -13,8 +13,7 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState>{
     
     result.fold((failure) {
       emit(FeaturedBooksFailure(failure.errMessage));
-    }
-    }, (books) {
+    },(books) {
     emit(FeaturedBooksSuccess(books));
   });
   }
