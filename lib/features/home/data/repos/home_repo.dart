@@ -1,6 +1,6 @@
 abstract class HomeRepo {
 
-  fetchBeastSellerBooks();
+   fetchBeastSellerBooks();
   fetchFeaturedBooks();
 
 }
