@@ -5,7 +5,7 @@ import 'reading_modes.dart';
 
 class VolumeInfo  {
   final String? title;
-  final List<String>? authors;
+  final List<dynamic>? authors;
   final String? publisher;
   final String? publishedDate;
   final String? description;
@@ -13,16 +13,13 @@ class VolumeInfo  {
   final ReadingModes? readingModes;
   final int? pageCount;
   final String? printType;
-  final List<String>? categories;
+  final List<dynamic>? categories;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
   final ImageLinks? imageLinks;
-  final String? language;
-  final String? previewLink;
-  final String? infoLink;
-  final String? canonicalVolumeLink;
+  final String? language, previewLink, infoLink, canonicalVolumeLink;
 
   const VolumeInfo({
     this.title,
