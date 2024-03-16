@@ -10,23 +10,25 @@ import 'features/home/presentation/manger/newst_books_cubit/newest_books_cubit.d
 
 void main() {
   setUpServiceLocator();
-  runApp(const BooklyApp());
+  runApp(const Bookly());
 }
 
-class BooklyApp extends StatelessWidget {
-  const BooklyApp({super.key});
+class Bookly extends StatelessWidget {
+  const Bookly({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks(),
+          create: (context) => FeaturedBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchFeaturedBooks(),
         ),
         BlocProvider(
-          create: (context) =>
-              NewestBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => NewestBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchNewestBooks(),
         )
       ],
       child: MaterialApp.router(
@@ -35,9 +37,8 @@ class BooklyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
           textTheme:
-              GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+          GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
         ),
-        // home: const SplashView(),
       ),
     );
   }

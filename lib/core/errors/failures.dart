@@ -9,7 +9,7 @@ abstract class Failure {
 class ServerFailure extends Failure {
   ServerFailure(super.errMessage);
 
-  factory ServerFailure.fromDioErorr(DioError dioError) {
+  factory ServerFailure.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure("Connection timeout with ApiServer");

@@ -9,50 +9,59 @@ class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
 
   HomeRepoImpl(this.apiService);
-
   @override
-  Future<Either<Failure, List<BookModel>>> fetchNewsSetBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
       var data = await apiService.get(
           endPoint:
-              "volumes?Filtering=free-ebooks&q=subject:pProgramming&Sorting");
+          'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
       List<BookModel> books = [];
-      for (var item in data["items"]) {
-        books.add(BookModel.fromJson(item));
+      for (var item in data['items']) {
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
+
       return right(books);
     } catch (e) {
       if (e is DioError) {
         return left(
-          ServerFailure.fromDioErorr(e),
+          ServerFailure.fromDioError(e),
         );
       }
       return left(
-        ServerFailure(e.toString()),
+        ServerFailure(
+          e.toString(),
+        ),
       );
     }
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks()async {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-          endPoint:
-          "volumes?Filtering=free-ebooks&q=subject:Programming");
+          endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
       List<BookModel> books = [];
-      for (var item in data["items"]) {
+      for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
+
       return right(books);
     } catch (e) {
       if (e is DioError) {
         return left(
-          ServerFailure.fromDioErorr(e),
+          ServerFailure.fromDioError(e),
         );
       }
       return left(
-        ServerFailure(e.toString()),
+        ServerFailure(
+          e.toString(),
+        ),
       );
     }
   }
+
 }
