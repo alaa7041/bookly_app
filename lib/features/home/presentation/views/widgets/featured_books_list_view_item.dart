@@ -4,10 +4,8 @@ import 'package:bookly_app/features/home/presentation/manger/featured_book_cubit
 import 'package:bookly_app/features/home/presentation/manger/featured_book_cubit/featured_book_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'custom_book_image.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../../core/utils/app_router.dart';
+import 'custom_book_image.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({Key? key}) : super(key: key);
