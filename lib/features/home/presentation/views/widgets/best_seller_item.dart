@@ -1,31 +1,28 @@
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'best_seller_rating.dart';
 
 class ItemSeller extends StatelessWidget {
-  const ItemSeller({super.key});
+  const ItemSeller({super.key, required this.bookModel});
+
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
       child: SizedBox(
         height: 128,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Image.asset(
-                AssetsData.testImage,
-                fit: BoxFit.fill,
-              ),
-            ),
+            CustomBookImage(imgUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
             const SizedBox(width: 20),
             Expanded(
               child: Column(
@@ -33,21 +30,25 @@ class ItemSeller extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
-                    child: const Text(
-                      "Harry Potter  and the Goblet of Fire ",
+                    child:  Text(
+                      bookModel.volumeInfo.title!,
                       style: Styles.textStyle20,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(width: 2),
-                  const Text("J.K. Rowling", style: Styles.textStyle14),
+                   Text(bookModel.volumeInfo.authors![0], style: Styles
+                       .textStyle14),
                   const SizedBox(width: 2),
                   Row(
-                    children: const [
-                      Text("19.99 €", style: Styles.textStyle20),
-                      Spacer(),
-                      BookRating()
+                    children:  [
+                      const Text("Free", style: Styles.textStyle20),
+                      const Spacer(),
+                      BookRating(
+                        rating: bookModel.volumeInfo.averageRating??0,
+                        count: bookModel.volumeInfo.ratingsCount??0,
+                      )
                     ],
                   ),
                 ],
@@ -59,4 +60,3 @@ class ItemSeller extends StatelessWidget {
     );
   }
 }
-

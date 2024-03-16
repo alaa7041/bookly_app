@@ -29,7 +29,7 @@ class Bookly extends StatelessWidget {
           create: (context) => NewestBooksCubit(
             getIt.get<HomeRepoImpl>(),
           )..fetchNewestBooks(),
-        )
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

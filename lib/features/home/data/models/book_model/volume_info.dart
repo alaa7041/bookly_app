@@ -17,7 +17,7 @@ class VolumeInfo extends Equatable {
   final String? printType;
   final List<String>? categories;
   final num? averageRating;
-  final int? ratingsCount;
+  final num? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
