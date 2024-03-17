@@ -1,32 +1,30 @@
 import 'package:equatable/equatable.dart';
-
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
-  final String? title;
   final List<String>? authors;
-  final String? publisher;
-  final String? publishedDate;
-  final String? description;
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes? readingModes;
   final int? pageCount;
   final String? printType;
   final List<String>? categories;
-  final num? averageRating;
-  final num? ratingsCount;
-  final String? maturityRating;
+  final num? averageRating, ratingsCount;
+  final String? maturityRating,
+      contentVersion,
+      language,
+      previewLink,
+      infoLink,
+      canonicalVolumeLink,
+      title,
+      publisher,
+      publishedDate,
+      description;
   final bool? allowAnonLogging;
-  final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
   final ImageLinks? imageLinks;
-  final String? language;
-  final String? previewLink;
-  final String? infoLink;
-  final String? canonicalVolumeLink;
 
   const VolumeInfo({
     this.title,
@@ -68,8 +66,8 @@ class VolumeInfo extends Equatable {
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
         categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
-        averageRating: json['averageRating'],
-        ratingsCount: json['ratingsCount'] as int?,
+        averageRating: json['averageRating'] ,
+        ratingsCount: json['ratingsCount'],
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,
