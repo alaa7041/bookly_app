@@ -16,14 +16,17 @@ class ItemSeller extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(
+          AppRouter.kBookDetailsView,
+          extra: bookModel,
+        );
       },
       child: SizedBox(
         height: 128,
         child: Row(
           children: [
-            CustomBookImage(imgUrl: bookModel.volumeInfo.imageLinks!
-                .thumbnail??''),
+            CustomBookImage(
+                imgUrl: bookModel.volumeInfo.imageLinks!.thumbnail ?? ''),
             const SizedBox(width: 20),
             Expanded(
               child: Column(
@@ -31,7 +34,7 @@ class ItemSeller extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
-                    child:  Text(
+                    child: Text(
                       bookModel.volumeInfo.title!,
                       style: Styles.textStyle20,
                       maxLines: 2,
@@ -39,16 +42,16 @@ class ItemSeller extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 2),
-                   Text(bookModel.volumeInfo.authors![0], style: Styles
-                       .textStyle14),
+                  Text(bookModel.volumeInfo.authors![0],
+                      style: Styles.textStyle14),
                   const SizedBox(width: 2),
                   Row(
-                    children:  [
+                    children: [
                       const Text("Free", style: Styles.textStyle20),
                       const Spacer(),
                       BookRating(
-                        rating: bookModel.volumeInfo.averageRating??0,
-                        count: bookModel.volumeInfo.ratingsCount??0,
+                        rating: bookModel.volumeInfo.averageRating ?? 0,
+                        count: bookModel.volumeInfo.ratingsCount ?? 0,
                       )
                     ],
                   ),
