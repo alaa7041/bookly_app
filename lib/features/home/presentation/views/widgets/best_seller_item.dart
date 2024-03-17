@@ -22,7 +22,8 @@ class ItemSeller extends StatelessWidget {
         height: 128,
         child: Row(
           children: [
-            CustomBookImage(imgUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
+            CustomBookImage(imgUrl: bookModel.volumeInfo.imageLinks!
+                .thumbnail??''),
             const SizedBox(width: 20),
             Expanded(
               child: Column(
