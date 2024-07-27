@@ -2,6 +2,7 @@ import 'package:bookly_app/features/home/domain/entities/book_entities.dart';
 import 'package:bookly_app/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/errors/failures.dart';
+import '../../../../core/use_case/use_cases.dart';
 
 class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>,NoParams>{
 
@@ -15,9 +16,3 @@ class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>,NoParams>{
   }
 
 }
-
-abstract class UseCase<Type, Param>{
-  Future<Either<Failure,Type>> call ([Param param]);
-}
-
-class NoParams{}
